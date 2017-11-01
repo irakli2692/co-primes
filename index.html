@@ -32,6 +32,12 @@
   </div>
   <br>
   <br>
+  <label for="intervals_count">intervals count</label>
+  <div id="intervals_count">
+
+  </div>
+  <br>
+  <br>
   <label for="euler_number">euler's number</label>
   <div id="euler_number">
 
@@ -58,6 +64,8 @@
       }, 0)
 
       $('#intervals_length').text(intervalsOveralLength);
+
+      $('#intervals_count').text(intervals.length);
 
       $('#euler_number').text(fi(n));
     });
