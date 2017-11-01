@@ -1,6 +1,19 @@
-function MinHeap(array) {
+function numberComparator(a, b) {
+  if (a === b) return 0;
+
+  return a < b ? -1 : 1;
+}
+
+function numberIncrease(number, increment) {
+  return number + increment;
+}
+
+function MinHeap(array, comparator, increase) {
   this.array = array;
   this.heapSize = array.length;
+
+  this.comparator = comparator || numberComparator;
+  this.increase = increase || numberIncrease;
 
   this.buildHeap();
 }
@@ -46,11 +59,11 @@ MinHeap.prototype.heapify = function(index) {
   var rightIndex = this.rightChildIndex(index);
   var indexToSwap = index;
 
-  if (leftIndex > -1 && this.array[leftIndex] < this.array[indexToSwap]) {
+  if (leftIndex > -1 && this.comparator(this.array[leftIndex], this.array[indexToSwap]) === -1) {
     indexToSwap = leftIndex;
   }
 
-  if (rightIndex > -1 && this.array[rightIndex] < this.array[indexToSwap]) {
+  if (rightIndex > -1 && this.comparator(this.array[rightIndex], this.array[indexToSwap]) === -1) {
     indexToSwap = rightIndex;
   }
 
@@ -100,7 +113,7 @@ MinHeap.prototype.extractMin = function() {
 MinHeap.prototype.increase = function(index, increment) {
   if (index >= this.heapSize) return;
 
-  this.array[index] += increment;
+  this.array[index] = this.increase(this.array[index], increment);
 
   this.heapify(index);
 };
