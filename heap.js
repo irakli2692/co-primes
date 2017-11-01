@@ -114,7 +114,7 @@ MinHeap.prototype.extractMin = function() {
   this.heapify(0);
 };
 
-MinHeap.prototype.increase = function(index, increment) {
+MinHeap.prototype.increaseWith = function(index, increment) {
   if (index >= this.heapSize || index < 0) return;
 
   this.array[index] = this.increase(this.array[index], increment);

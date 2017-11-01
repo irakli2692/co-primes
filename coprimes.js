@@ -22,13 +22,13 @@ function calcCoPrimesIntervals(n) {
 
     currentStart = primePairsHeap.min()[0] + 1;
 
-    if (primePairsHeap.min()[0] + primePairsHeap.min()[1] >= n) {
+    if (primePairsHeap.min()[0] + primePairsHeap.min()[1] > n) {
       primePairsHeap.extractMin();
 
       continue;
     }
 
-    primePairsHeap.increase(
+    primePairsHeap.increaseWith(
       primePairsHeap.minIndex(),
       primePairsHeap.min()[1]
     );
