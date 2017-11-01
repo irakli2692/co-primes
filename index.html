@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>co-primes</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="heap.js" charset="utf-8"></script>
+  <script src="multipliers.js" charset="utf-8"></script>
+  <script src="interval.js" charset="utf-8"></script>
+  <script src="coprimes.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="input">
+    <button type="button" id="btn_calc"></button>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="result">
+    რაღაც
+  </div>
+
+  <script type="text/javascript">
+    $('#btn_calc').click(function() {
+      var n = Number($('#input').val());
+
+      var intervals = calcCoPrimesIntervals(n);
+
+      var content = intervals
+        .map(function(interval) {
+          return interval.toString();
+        })
+        .join('\n');
+
+      $('#result').text(content);
+    });
+  </script>
+</body>
+
+</html>
