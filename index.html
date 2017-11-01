@@ -14,7 +14,7 @@
 <body>
   <div>
     <input type="text" id="input">
-    <button type="button" id="btn_calc"></button>
+    <button type="button" id="btn_calc">calculate co-primes</button>
   </div>
   <br>
   <br>
@@ -22,6 +22,18 @@
   <br>
   <div id="result">
     რაღაც
+  </div>
+  <br>
+
+  <label for="intervals_length">intervals overall length</label>
+  <div id="intervals_length">
+
+  </div>
+  <br>
+  <br>
+  <label for="euler_number">euler's number</label>
+  <div id="euler_number">
+
   </div>
 
   <script type="text/javascript">
@@ -37,6 +49,14 @@
         .join('\n');
 
       $('#result').text(content);
+
+      var intervalsOveralLength = intervals.reduce(function (sum, interval) {
+        sum += interval.length();
+
+        return sum;
+      }, 0)
+
+      $('#intervals_length').text(intervalsOveralLength);
     });
   </script>
 </body>

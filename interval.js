@@ -10,3 +10,7 @@ ClosedInterval.prototype.isValid = function () {
 ClosedInterval.prototype.toString = function () {
   return '[ ' + this.start + ' -- ' + this.end + ' ]';
 };
+
+ClosedInterval.prototype.length = function () {
+  return this.end - this.start + 1;
+};
