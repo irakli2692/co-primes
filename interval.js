@@ -6,3 +6,7 @@ function ClosedInterval(start, end) {
 ClosedInterval.prototype.isValid = function () {
   return this.start <= this.end;
 };
+
+ClosedInterval.prototype.toString = function () {
+  return '[ ' + this.start + ' -- ' + this.end + ' ]';
+};
