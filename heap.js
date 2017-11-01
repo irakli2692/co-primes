@@ -94,6 +94,10 @@ MinHeap.prototype.min = function() {
   return this.heapSize ? this.array[0] : null;
 };
 
+MinHeap.prototype.minIndex = function() {
+  return this.heapSize ? 0 : -1;
+};
+
 MinHeap.prototype.isEmpty = function() {
   return this.heapSize === 0;
 };
@@ -111,7 +115,7 @@ MinHeap.prototype.extractMin = function() {
 };
 
 MinHeap.prototype.increase = function(index, increment) {
-  if (index >= this.heapSize) return;
+  if (index >= this.heapSize || index < 0) return;
 
   this.array[index] = this.increase(this.array[index], increment);
 
